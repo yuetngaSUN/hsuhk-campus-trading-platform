@@ -31,26 +31,25 @@ This project is built based on modern cloud computing and distributed system pri
 
 ## 🚀 How to Run Locally
 
-If you want to run this backend API on your local machine, please follow these steps:
+### Option A: Standard Run (Development)
+1. Clone the repository and install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Start the FastAPI server using SQLite:
+   ```bash
+   uvicorn main:app --reload --host 0.0.0.0 --port 8000
+   ```
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/yuetngaSUN/hsuhk-campus-trading-platform.git
-cd hsuhk-campus-trading-platform
-```
+### Option B: Dockerized Setup with MySQL (Production-grade)
+Our project is container-ready. We use **Docker Compose** to orchestrate the FastAPI backend and a MySQL database container, ensuring isolated and consistent environments.
 
-### 2. Install dependencies
-Make sure you have Python installed, then run:
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Start the FastAPI server
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-The server will start at `http://127.0.0.1:8000`. You can test the APIs interactively by visiting the auto-generated Swagger UI at `http://127.0.0.1:8000/docs`.
-
+1. Ensure Docker and Docker Compose are installed on your machine.
+2. Build and start the containers in the background:
+   ```bash
+   docker-compose up -d --build
+   ```
+3. The API will be accessible at `http://localhost:8000`, connected seamlessly to the dedicated MySQL container.
 ---
 
 ## ☁️ Deployment on AWS (Production)
